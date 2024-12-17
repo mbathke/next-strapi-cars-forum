@@ -3,8 +3,7 @@ async function getStrapiData(path: string) {
 
   try {
     const response = await fetch(baseUrl + path)
-    const data = await response.json()
-    return data
+    return response.json()
   } catch(e) {
     console.error(e) 
   }
