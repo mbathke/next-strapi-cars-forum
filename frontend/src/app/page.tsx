@@ -1,9 +1,79 @@
 import { getStrapiData } from '@/lib/data'
+import NewsCard from '@/components/NewsCard'
 import IycLogo from './ui/iyc-logo'
 
 export default async function Home() {
   const data = await getStrapiData('/api/home-page')
   const { title, description } = data.data
+
+  const news = [
+    {
+      id: 1,
+      title: 'Clubtreffen im März',
+      text: 'Unser monatliches Clubtreffen im März findet am Sonntag, dem 09.03.2025 gegen 16 Uhr statt.\nSollten Fragen oder Ideen hierzu bestehen, dann können diese im internen Forenbereich hinterlegt werden. Zudem findet ihr dort alles zum Treffpunkt und was geplant ist. \n\nBitte denkt in jedem Fall an gute Laune!',
+      image: '',
+      datetime: '13.02.25 14:24 Uhr',
+      author: 'umbro',
+    },
+    {
+      id: 2,
+      title: 'ganjaman hat Geburtstag und wird 42',
+      text: `
+Hiermit gratulieren wir ganjaman im Namen des gesamten Clubs zum 42. Geburtstag.
+<br/>
+<br/>
+<br/> 
+Und weil Du heut Geburtstag hast,<br/>
+da haben wir gedacht,<br/>
+wir singen dir ein kleines Lied,<br/>
+weil dir das Freude macht.<br/>
+<br/> 
+<br/> 
+Und auch ein bunter Blumenstrauß<br/>
+ziert heute deinen Tisch.<br/>
+und wenn du ihn ins Wasser stellst,<br/>
+dann bleibt er lange frisch.<br/>
+<br/> 
+<br/> 
+Und wenn du einen Kuchen hast,<br/>
+so groß wie'n Mühlenstein<br/>
+und Schokolade auch dazu,<br/>
+dann lad uns alle ein.<br/>
+`,
+      image: '',
+      datetime: '09.02.25 00:05 Uhr',
+      author: 'ganjaman',
+    },
+    {
+      id: 3,
+      title: 'umbro hat Geburtstag und wird 47',
+      text: `
+Hiermit gratulieren wir ganjaman im Namen des gesamten Clubs zum 42. Geburtstag.
+<br/>
+<br/>
+<br/> 
+Und weil Du heut Geburtstag hast,<br/>
+da haben wir gedacht,<br/>
+wir singen dir ein kleines Lied,<br/>
+weil dir das Freude macht.<br/>
+<br/> 
+<br/> 
+Und auch ein bunter Blumenstrauß<br/>
+ziert heute deinen Tisch.<br/>
+und wenn du ihn ins Wasser stellst,<br/>
+dann bleibt er lange frisch.<br/>
+<br/> 
+<br/> 
+Und wenn du einen Kuchen hast,<br/>
+so groß wie'n Mühlenstein<br/>
+und Schokolade auch dazu,<br/>
+dann lad uns alle ein.<br/>
+`,
+      image: '',
+      datetime: '21.02.25 00:05 Uhr',
+      author: 'umbro',
+    }  
+  ] 
 
   return (
     <main className="flex min-h-screen flex-col p-6">
@@ -17,8 +87,16 @@ export default async function Home() {
             {description}
           </p>
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add News Cards here */}
+        <div className="flex flex-col gap-6">
+          {news && news.map(item => (
+            <NewsCard 
+              key={`item-${item.id}`} 
+              title={item.title} 
+              text={item.text} 
+              datetime={item.datetime}
+              author={item.author}
+            /> 
+          ))}
         </div>
       </div>
     </main>
