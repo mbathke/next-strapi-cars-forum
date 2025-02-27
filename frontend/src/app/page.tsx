@@ -1,6 +1,8 @@
 import { getStrapiData } from '@/lib/data'
-import NewsCard from '@/components/NewsCard'
-import IycLogo from './ui/iyc-logo'
+import NewsCard from '@/components/news-card'
+import IycLogo from '@/app/ui/iyc-logo'
+import { Suspense } from 'react'
+import { CardsSkeleton } from '@/app/ui/skeletons'
 
 export default async function Home() {
   const data = await getStrapiData('/api/home-page')
@@ -40,7 +42,7 @@ so groß wie'n Mühlenstein<br/>
 und Schokolade auch dazu,<br/>
 dann lad uns alle ein.<br/>
 `,
-      image: '',
+      image: '/happy.png',
       datetime: '09.02.25 00:05 Uhr',
       author: 'ganjaman',
     },
@@ -69,7 +71,7 @@ so groß wie'n Mühlenstein<br/>
 und Schokolade auch dazu,<br/>
 dann lad uns alle ein.<br/>
 `,
-      image: '',
+      image: '/happy.png',
       datetime: '21.02.25 00:05 Uhr',
       author: 'umbro',
     }  
@@ -95,6 +97,7 @@ dann lad uns alle ein.<br/>
               text={item.text} 
               datetime={item.datetime}
               author={item.author}
+              image={item.image}
             /> 
           ))}
         </div>

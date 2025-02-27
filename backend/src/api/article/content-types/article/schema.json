@@ -22,12 +22,15 @@
       "required": false,
       "unique": false
     },
-    "uuid": {
-      "type": "customField",
-      "options": {
-        "uuid-format": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
-      },
-      "customField": "plugin::strapi-advanced-uuid.uuid"
+    "image": {
+      "type": "string",
+      "required": false
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "articles"
     }
   }
 }
