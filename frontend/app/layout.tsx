@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
-import { roboto } from '@/app/ui/fonts';
+import { roboto } from '@/ui/fonts';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={`${roboto.className} antialiased dark`}>
+      <body className={`${roboto.className} antialiased`}>
         {children}
       </body>
     </html>

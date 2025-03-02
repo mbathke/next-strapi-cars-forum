@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import Home from '../src/app/page'
-import { mockFetch } from '../src/lib/mock-fetch'
+import Home from '../app/page'
+import { mockFetch } from '../app/lib/mock-fetch'
 
 interface HomePage {
   data: {

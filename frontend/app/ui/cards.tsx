@@ -1,9 +1,7 @@
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardHeader, CardContent, CardFooter } from '@/ui/components/card'
 import Image from 'next/image'
 
-import happy from '@/app/happy.png'
-
-export default function NewsCard({
+export function NewsCard({
     title, 
     text,
     datetime,
@@ -22,7 +20,7 @@ export default function NewsCard({
             <CardContent className="flex">
                 <div>{text}</div>
                 {image && (
-                    <Image src={happy} alt={`Image of ${title}`} width={400} height={400} />
+                    <Image src="/happy.png" alt={`Image of ${title}`} width={400} height={400} />
                 )}
             </CardContent>
             <CardFooter className="flex justify-end">
@@ -33,3 +31,5 @@ export default function NewsCard({
         </Card>
     )
 }
+
+
